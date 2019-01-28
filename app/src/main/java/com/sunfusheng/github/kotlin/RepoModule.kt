@@ -7,20 +7,15 @@ import dagger.Provides
  * @author by sunfusheng on 2019/1/28
  */
 @Module
-class RepoModule(var repoName: String, val user: User) {
+class RepoModule(val repoName: String, val user: User) {
 
     @Provides
-    fun provideRepoName(): String {
+    fun repoName(): String {
         return repoName
     }
 
-//    @Provides
-//    fun provideUser(): User {
-//        return user
-//    }
-
     @Provides
-    fun provideRepo(): Repo {
+    fun repo(): Repo {
         return Repo(repoName, user)
     }
 }
