@@ -8,6 +8,6 @@ import android.util.Log
 data class Repo constructor(val repoName: String, val user: User) {
 
     fun info() {
-        Log.d("--->", "$repoName owned by ${user.userName}")
+        Log.d("--->", "$repoName is owned by ${user.userName}")
     }
 }

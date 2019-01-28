@@ -15,9 +15,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val userName = "sunfusheng"
+        val repoName = "MarqueeView"
+
         DaggerMainComponent.builder()
-            .userModule(UserModule("sfs"))
-            .repoModule(RepoModule("MarqueeView", User("sunfusheng")))
+            .userModule(UserModule(userName))
+            .repoModule(RepoModule(repoName, User(userName)))
             .build()
             .inject(this);
 
