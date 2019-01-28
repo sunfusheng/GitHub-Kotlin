@@ -7,10 +7,15 @@ import dagger.Provides
  * @author by sunfusheng on 2019/1/28
  */
 @Module
-class UserModule {
+class UserModule(var userName: String) {
 
     @Provides
-    fun provideUser(userName: String): User {
+    fun provideUserName(): String {
+        return userName
+    }
+
+    @Provides
+    fun provideUser(): User {
         return User(userName)
     }
 }

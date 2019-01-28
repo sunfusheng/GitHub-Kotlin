@@ -15,7 +15,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        DaggerMainComponent.builder()
+            .userModule(UserModule("sunfusheng"))
+            .repoModule(RepoModule("MarqueeView", User("fusheng")))
+            .build()
+            .inject(this);
 
+        user.info()
+        repo.info()
     }
 
 }
