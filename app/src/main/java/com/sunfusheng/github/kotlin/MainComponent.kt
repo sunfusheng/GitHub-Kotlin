@@ -7,6 +7,5 @@ import dagger.Component
  */
 @Component(modules = [UserModule::class, RepoModule::class])
 interface MainComponent {
-
     fun inject(activity: MainActivity)
 }

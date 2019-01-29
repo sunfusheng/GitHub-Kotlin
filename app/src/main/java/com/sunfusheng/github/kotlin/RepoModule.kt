@@ -6,16 +6,12 @@ import dagger.Provides
 /**
  * @author by sunfusheng on 2019/1/28
  */
-@Module
-class RepoModule(val repoName: String, val user: User) {
+@Module(includes = [UserModule::class])
+class RepoModule(private val repoName: String) {
 
     @Provides
-    fun repoName(): String {
-        return repoName
-    }
+    fun repoName() = repoName
 
     @Provides
-    fun repo(): Repo {
-        return Repo(repoName, user)
-    }
+    fun repo(user: User) = Repo(repoName, user)
 }

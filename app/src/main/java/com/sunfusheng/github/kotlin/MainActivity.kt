@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         DaggerMainComponent.builder()
             .userModule(UserModule(userName))
-            .repoModule(RepoModule(repoName, User(userName)))
+            .repoModule(RepoModule(repoName))
             .build()
             .inject(this);
 
