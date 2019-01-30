@@ -1,17 +1,84 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-    </style>
-    <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
+        <item name="android:windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="actionBarItemBackground">@drawable/abc_item_background_holo_light</item>
+        <item name="selectableItemBackground">@drawable/abc_item_background_holo_light</item>
+        <item name="titleTextAppearance">@style/ToolBar.Title</item>
+        <item name="subtitleTextAppearance">@style/Toolbar.SubTitle</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!--Toolbar 标题-->
+    <style name="ToolBar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!--Toolbar 副标题-->
+    <style name="Toolbar.SubTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">@dimen/text_size_xxxx_small</item>
+        <item name="android:textColor">@color/transparent70_white</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="singleLine">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="textView.singleLine.titlebar_title" parent="ToolBar.Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="textView.singleLine.titlebar_title.left" parent="textView.singleLine.titlebar_title">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:maxWidth">190dp</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="textView.singleLine.titlebar_title.right" parent="textView.singleLine.titlebar_title">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:maxWidth">190dp</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="titlebar_img">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="TabLayoutTextStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="textAllCaps">false</item>
+    </style>
 
 </resources>
