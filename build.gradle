@@ -13,18 +13,20 @@ buildscript {
 
         lifecycle_version = '1.1.1'
         room_version = '1.1.1'
+        objectbox_version = '2.3.4'
     }
 
     repositories {
         google()
         jcenter()
-
+        maven { url 'https://dl.bintray.com/sfsheng0322/maven' }
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:' + kotlin_version
+        classpath 'org.jetbrains.kotlin:kotlin-android-extensions:' + kotlin_version
+        classpath 'io.objectbox:objectbox-gradle-plugin:' + objectbox_version
     }
 }
 
@@ -32,6 +34,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://dl.bintray.com/sfsheng0322/maven' }
     }
 }
 
