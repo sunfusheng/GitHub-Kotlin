@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initToolbar()
+
     }
 
     private fun initToolbar() {
