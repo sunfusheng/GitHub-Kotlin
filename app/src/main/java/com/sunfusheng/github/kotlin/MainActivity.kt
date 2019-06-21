@@ -22,4 +22,5 @@ class MainActivity : AppCompatActivity() {
         vStatusBar.layoutParams = layoutParams
         vToolbar.title = getString(R.string.app_name)
     }
+
 }
