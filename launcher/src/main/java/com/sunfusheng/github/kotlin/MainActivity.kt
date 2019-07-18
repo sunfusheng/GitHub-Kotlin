@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initToolbar()
-
+        testFeatures()
     }
 
     private fun initToolbar() {
@@ -21,6 +21,16 @@ class MainActivity : AppCompatActivity() {
         layoutParams.height = StatusBarUtil.getStatusBarHeight(this)
         vStatusBar.layoutParams = layoutParams
         vToolbar.title = getString(R.string.app_name)
+    }
+
+    private fun testFeatures() {
+        check(1 == 1) {
+            "1 == 1";
+        }
+
+        check(1 == 2) {
+            "1 == 2";
+        }
     }
 
 }
