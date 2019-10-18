@@ -7,6 +7,10 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        const val TAG = "sfs"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         StatusBarUtil.setTranslucent(this)
@@ -23,14 +27,10 @@ class MainActivity : AppCompatActivity() {
         vToolbar.title = getString(R.string.app_name)
     }
 
+    @Throws(Exception::class)
     private fun testFeatures() {
-        check(1 == 1) {
-            "1 == 1";
-        }
 
-        check(1 == 2) {
-            "1 == 2";
-        }
+
     }
 
 }
