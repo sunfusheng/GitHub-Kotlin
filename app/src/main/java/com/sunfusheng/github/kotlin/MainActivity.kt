@@ -1,7 +1,9 @@
 package com.sunfusheng.github.kotlin
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sunfusheng.github.kotlin.ui.LoginActivity
 import com.sunfusheng.github.kotlin.util.StatusBarUtil
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
@@ -14,6 +16,9 @@ class MainActivity : AppCompatActivity() {
 
         initToolbar()
         testFeatures()
+
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     private fun initToolbar() {

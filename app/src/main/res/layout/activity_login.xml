@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.sunfusheng.github.kotlin.widget.SVGView
+        android:id="@+id/vLogo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:svgFillColors="@array/colors_github_grey"
+        app:svgFillStart="1500"
+        app:svgFillTime="1500"
+        app:svgGlyphStrings="@array/github_glyphs_strings"
+        app:svgImageSizeX="512"
+        app:svgImageSizeY="512"
+        app:svgTraceColors="@array/colors_github_primary"
+        app:svgTraceResidueColors="@array/colors_github_primary"
+        app:svgTraceTime="3000"
+        app:svgTraceTimePerGlyph="1500" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vCLUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_margin_large"
+        android:layout_marginEnd="@dimen/item_margin_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/vUsernameTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_margin_smaller"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="0dp"
+            android:text="@string/username"
+            android:textColor="@color/c1"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/vUsername" />
+
+        <EditText
+            android:id="@+id/vUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableBottom="@drawable/drawable_edittext_bottom_line_selector"
+            android:drawablePadding="@dimen/item_margin_large"
+            android:hint="@string/username_input"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="textCapCharacters"
+            android:maxLines="1"
+            android:paddingStart="80dp"
+            android:paddingTop="@dimen/item_margin_large"
+            android:paddingEnd="0dp"
+            android:text=""
+            android:textColor="@color/c1"
+            android:textColorHint="@color/c4"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_margin_large"
+        android:layout_marginEnd="@dimen/item_margin_large"
+        app:layout_constraintTop_toBottomOf="@+id/vCLUsername">
+
+        <TextView
+            android:id="@+id/vPasswordTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_margin_smaller"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="0dp"
+            android:text="@string/password"
+            android:textColor="@color/c1"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/vPassword" />
+
+        <EditText
+            android:id="@+id/vPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableBottom="@drawable/drawable_edittext_bottom_line_selector"
+            android:drawablePadding="@dimen/item_margin_large"
+            android:hint="@string/password_input"
+            android:imeOptions="actionGo"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingStart="80dp"
+            android:paddingTop="@dimen/item_margin_large"
+            android:paddingEnd="0dp"
+            android:text=""
+            android:textColor="@color/c1"
+            android:textColorHint="@color/c4"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/item_margin_large"
+        android:text="@string/app_author"
+        android:textColor="@color/font3"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
