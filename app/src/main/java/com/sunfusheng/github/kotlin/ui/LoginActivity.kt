@@ -16,6 +16,10 @@ class LoginActivity : BaseActivity() {
         StatusBarUtil.setColor(this, resources.getColor(R.color.white), 0)
         setContentView(R.layout.activity_login)
 
+        vLogo.setOnClickListener {
+            vLogo.start()
+        }
+
         vLogo.postDelayed({
             vLogo.start()
         }, 200)
