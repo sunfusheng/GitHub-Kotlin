@@ -76,7 +76,7 @@ class SVGView @JvmOverloads constructor(
         mTraceColors = intArrayOf(Color.BLACK)
         mTraceResidueColors = intArrayOf(0x32000000)
 
-        attrs?.let { set ->
+        attrs?.let {
             context.obtainStyledAttributes(attrs, R.styleable.SVGView).apply {
                 mViewportWidth = getInt(R.styleable.SVGView_svgImageSizeX, 512).toFloat()
                 aspectRatioWidth = getInt(R.styleable.SVGView_svgImageSizeX, 512).toFloat()

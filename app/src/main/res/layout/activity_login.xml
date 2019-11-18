@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:padding="@dimen/item_margin_large">
 
     <com.sunfusheng.github.kotlin.widget.SVGView
         android:id="@+id/vLogo"
@@ -28,10 +29,9 @@
         android:id="@+id/vCLUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/item_margin_large"
-        android:layout_marginEnd="@dimen/item_margin_large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@id/vCLPassword"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
             android:id="@+id/vUsernameTip"
@@ -70,11 +70,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vCLPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/item_margin_large"
-        android:layout_marginEnd="@dimen/item_margin_large"
-        app:layout_constraintTop_toBottomOf="@+id/vCLUsername">
+        app:layout_constraintBottom_toTopOf="@id/vLogin"
+        app:layout_constraintTop_toBottomOf="@id/vCLUsername">
 
         <TextView
             android:id="@+id/vPasswordTip"
@@ -112,10 +112,20 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.sunfusheng.github.kotlin.widget.radiusview.RadiusTextView
+        android:id="@+id/vLogin"
+        style="@style/RadiusButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/login"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vCLPassword" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/item_margin_large"
         android:text="@string/app_author"
         android:textColor="@color/font3"
         android:textSize="12sp"

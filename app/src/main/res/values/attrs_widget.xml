@@ -15,7 +15,7 @@
     </declare-styleable>
 
 
-    <declare-styleable name="RadiusWidget">
+    <declare-styleable name="RadiusView">
         <attr name="backgroundColor" />
         <attr name="borderColor" />
         <attr name="borderWidth" />
