@@ -201,10 +201,10 @@ class SVGView @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        var width = View.MeasureSpec.getSize(widthMeasureSpec)
-        var height = View.MeasureSpec.getSize(heightMeasureSpec)
-        val widthMode = View.MeasureSpec.getMode(widthMeasureSpec)
-        val heightMode = View.MeasureSpec.getMode(heightMeasureSpec)
+        var width = MeasureSpec.getSize(widthMeasureSpec)
+        var height = MeasureSpec.getSize(heightMeasureSpec)
+        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
+        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
 
         if (height <= 0 && width <= 0 && heightMode == View.MeasureSpec.UNSPECIFIED &&
             widthMode == View.MeasureSpec.UNSPECIFIED
@@ -222,8 +222,8 @@ class SVGView @JvmOverloads constructor(
         }
 
         super.onMeasure(
-            View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
-            View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY)
+            MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
+            MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY)
         )
     }
 
