@@ -3,7 +3,7 @@
     <string name="app_name">GitHub-Kotlin</string>
     <string name="app_name_with_version">GitHub V%s</string>
     <string name="app_author">作者：孙福生</string>
-    <string name="github_url">https://github.com</string>
+    <string name="github_url">https://github.com/sunfusheng/GitHub-Kotlin</string>
 
     <string name="tab_home">主页</string>
     <string name="tab_discover">发现</string>
