@@ -65,7 +65,6 @@ class SVGView @JvmOverloads constructor(
     private var mState = STATE_NOT_STARTED
     private var mOnStateChangeListener: OnStateChangeListener? = null
 
-
     init {
         mMarkerLength = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
