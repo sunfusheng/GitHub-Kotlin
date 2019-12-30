@@ -10,13 +10,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="0dp"
-        android:background="@mipmap/ic_action_person"
-        app:layout_constraintBottom_toBottomOf="@+id/vEditText"
+        android:background="@drawable/ic_person_black"
+        app:layout_constraintBottom_toBottomOf="@+id/vContent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/vEditText" />
+        app:layout_constraintTop_toTopOf="@+id/vContent" />
 
     <EditText
-        android:id="@+id/vEditText"
+        android:id="@+id/vContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
@@ -43,9 +43,9 @@
         android:layout_height="20dp"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="12dp"
-        android:padding="5dp"
-        android:src="@mipmap/ic_action_clear"
-        app:layout_constraintBottom_toBottomOf="@+id/vEditText"
+        android:background="@drawable/ic_clear_black"
+        android:padding="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/vContent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/vEditText" />
+        app:layout_constraintTop_toTopOf="@+id/vContent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
