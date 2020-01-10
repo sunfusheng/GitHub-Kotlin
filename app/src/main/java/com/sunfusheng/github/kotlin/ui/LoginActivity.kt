@@ -6,7 +6,6 @@ import com.sunfusheng.github.kotlin.R
 import com.sunfusheng.github.kotlin.util.KeyboardUtil
 import com.sunfusheng.github.kotlin.util.StatusBarUtil
 import com.sunfusheng.github.kotlin.util.ToastUtil
-import io.reactivex.functions.Action
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -41,7 +40,7 @@ class LoginActivity : BaseActivity() {
             vLogo.start()
         }
 
-        vPassword.setCommittedCallback(Action {
+        vPassword.setCommittedCallback(Runnable {
             login()
         })
 
