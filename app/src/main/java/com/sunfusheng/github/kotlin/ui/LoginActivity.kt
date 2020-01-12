@@ -52,12 +52,12 @@ class LoginActivity : BaseActivity() {
 
     private fun login() {
         val username = vUsername.getUsername()
-        val password = vPassword.getPassword()
         if (TextUtils.isEmpty(username)) {
             ToastUtil.toast(R.string.username_input)
             return
         }
 
+        val password = vPassword.getPassword()
         if (TextUtils.isEmpty(password)) {
             ToastUtil.toast(R.string.password_input)
             return
