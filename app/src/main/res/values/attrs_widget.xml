@@ -1,5 +1,6 @@
 <resources>
 
+
     <declare-styleable name="LoadingView">
         <attr name="viewColor" />
         <attr name="viewSize" />
@@ -42,15 +43,11 @@
     </declare-styleable>
 
 
-    <declare-styleable name="AlphaTabView">
-        <attr name="tabIconNormal" format="reference" />
-        <attr name="tabIconSelected" format="reference" />
+    <declare-styleable name="MainTabView">
+        <attr name="tabIcon" format="reference" />
         <attr name="tabText" format="string" />
-        <attr name="tabTextSize" format="dimension" />
-        <attr name="textColorNormal" format="color" />
-        <attr name="textColorSelected" format="color" />
-        <attr name="badgeBackgroundColor" format="color" />
-        <attr name="drawablePadding" format="dimension" />
+        <attr name="tabColorNormal" format="color" />
+        <attr name="tabColorSelected" format="color" />
     </declare-styleable>
 
 
@@ -61,10 +58,12 @@
         <attr name="circleBorder" />
     </declare-styleable>
 
+
     <declare-styleable name="CircleTextView" parent="CircleView">
         <attr name="viewText" />
         <attr name="viewTextColor" />
         <attr name="viewTextSize" />
     </declare-styleable>
+
 
 </resources>

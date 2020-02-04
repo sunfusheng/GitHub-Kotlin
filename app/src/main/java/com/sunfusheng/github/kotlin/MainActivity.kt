@@ -1,10 +1,9 @@
 package com.sunfusheng.github.kotlin
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.sunfusheng.github.kotlin.ui.LoginActivity
 import com.sunfusheng.github.kotlin.util.StatusBarUtil
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,10 +14,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initToolbar()
-        testFeatures()
+        initTabs()
 
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
+//        startActivity(Intent(this, LoginActivity::class.java))
+//        finish()
     }
 
     private fun initToolbar() {
@@ -28,9 +27,22 @@ class MainActivity : AppCompatActivity() {
         vToolbar.title = getString(R.string.app_name)
     }
 
-    private fun testFeatures() {
-
-
+    private fun initTabs() {
+        vHome.setOnClickListener {
+            vHome.setTabSelected()
+            vDiscover.setTabNormal()
+            vMe.setTabNormal()
+        }
+        vDiscover.setOnClickListener {
+            vHome.setTabNormal()
+            vDiscover.setTabSelected()
+            vMe.setTabNormal()
+        }
+        vMe.setOnClickListener {
+            vHome.setTabNormal()
+            vDiscover.setTabNormal()
+            vMe.setTabSelected()
+        }
     }
 
 }

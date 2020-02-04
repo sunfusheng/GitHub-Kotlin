@@ -7,7 +7,7 @@
 
     <string name="tab_home">主页</string>
     <string name="tab_discover">发现</string>
-    <string name="tab_mine">我</string>
+    <string name="tab_me">我的</string>
 
     <string name="Repositories">Repositories</string>
     <string name="Followers">Followers</string>

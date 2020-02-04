@@ -1,4 +1,4 @@
-package com.sunfusheng.github.kotlin.widget
+package com.sunfusheng.github.kotlin.widget.app
 
 import android.content.Context
 import android.text.Editable
