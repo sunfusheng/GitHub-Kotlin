@@ -1,7 +1,8 @@
-package com.sunfusheng.github.kotlin
+package com.sunfusheng.github.kotlin.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sunfusheng.github.kotlin.R
 import com.sunfusheng.github.kotlin.util.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_toolbar.*

@@ -1,4 +1,4 @@
-package com.sunfusheng.github.kotlin.ui
+package com.sunfusheng.github.kotlin.ui.base
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity

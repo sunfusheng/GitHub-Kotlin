@@ -3,6 +3,7 @@ package com.sunfusheng.github.kotlin.ui
 import android.os.Bundle
 import android.text.TextUtils
 import com.sunfusheng.github.kotlin.R
+import com.sunfusheng.github.kotlin.ui.base.BaseActivity
 import com.sunfusheng.github.kotlin.util.KeyboardUtil
 import com.sunfusheng.github.kotlin.util.StatusBarUtil
 import com.sunfusheng.github.kotlin.util.ToastUtil

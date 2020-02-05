@@ -8,7 +8,7 @@
     <include layout="@layout/layout_toolbar" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vViewPager2"
+        android:id="@+id/viewPager2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />

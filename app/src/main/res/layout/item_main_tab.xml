@@ -3,7 +3,6 @@
     android:id="@+id/vTab"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="?android:attr/selectableItemBackground"
     android:gravity="center"
     android:orientation="vertical">
 
