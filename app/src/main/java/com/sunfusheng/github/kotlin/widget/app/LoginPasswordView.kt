@@ -40,7 +40,7 @@ class LoginPasswordView @JvmOverloads constructor(
             vPrefixIcon.setBackgroundResource(if (hasFocus) R.drawable.ic_lock_red else R.drawable.ic_lock_black)
         }
 
-        vContent.setImeOptions(EditorInfo.IME_ACTION_SEND)
+        vContent.imeOptions = EditorInfo.IME_ACTION_SEND
         vContent.setOnEditorActionListener { v: TextView?, actionId: Int, event: KeyEvent? ->
             if (actionId == EditorInfo.IME_ACTION_SEND) {
                 mCommittedCallback?.run()
@@ -54,10 +54,10 @@ class LoginPasswordView @JvmOverloads constructor(
             showPassword = !showPassword
             if (showPassword) {
                 vSuffixIcon.setBackgroundResource(R.drawable.ic_visibility_black)
-                vContent.setTransformationMethod(HideReturnsTransformationMethod.getInstance())
+                vContent.transformationMethod = HideReturnsTransformationMethod.getInstance()
             } else {
                 vSuffixIcon.setBackgroundResource(R.drawable.ic_visibility_off_black)
-                vContent.setTransformationMethod(PasswordTransformationMethod.getInstance())
+                vContent.transformationMethod = PasswordTransformationMethod.getInstance()
             }
             vContent.setSelection(getPassword().length)
         }
