@@ -36,8 +36,8 @@ class RequestDSL<Response> {
         this.onFinally = block
     }
 
-    internal fun launch(coroutineScope: CoroutineScope) {
-        coroutineScope.launch(Dispatchers.Main) {
+    internal fun launch(viewModelScope: CoroutineScope) {
+        viewModelScope.launch(Dispatchers.Main) {
             onStart?.invoke()
             try {
                 val response = withContext(Dispatchers.IO) {

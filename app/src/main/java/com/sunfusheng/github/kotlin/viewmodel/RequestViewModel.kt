@@ -19,27 +19,24 @@ open class RequestViewModel : ViewModel() {
 
     protected fun <Response> requestDSL(requestDSL: RequestDSL<Response>.() -> Unit) {
         requestInternal<Response> {
+            val invoker = RequestDSL<Response>().apply(requestDSL)
             onStart {
                 loadingLiveData.value = true
-                RequestDSL<Response>().apply(requestDSL).onStart?.invoke()
+                invoker.onStart?.invoke()
             }
-
             onRequest {
-                RequestDSL<Response>().apply(requestDSL).onRequest()
+                invoker.onRequest()
             }
-
             onResponse { response ->
-                RequestDSL<Response>().apply(requestDSL).onResponse?.invoke(response)
+                invoker.onResponse?.invoke(response)
             }
-
             onError { exception ->
                 exceptionLiveData.value = exception
-                RequestDSL<Response>().apply(requestDSL).onError?.invoke(exception)
+                invoker.onError?.invoke(exception)
             }
-
             onFinally {
                 loadingLiveData.value = false
-                RequestDSL<Response>().apply(requestDSL).onFinally?.invoke()
+                invoker.onFinally?.invoke()
             }
         }
     }
