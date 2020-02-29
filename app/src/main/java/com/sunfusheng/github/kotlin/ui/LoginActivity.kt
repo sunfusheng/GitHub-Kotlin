@@ -50,7 +50,6 @@ class LoginActivity : BaseActivity() {
         }
     }
 
-
     private fun login() {
         val username = vUsername.getUsername()
         if (TextUtils.isEmpty(username)) {
