@@ -10,37 +10,42 @@ import kotlin.coroutines.CoroutineContext
  * @since 2020/2/29
  */
 open class RequestViewModel : ViewModel() {
-    open val loadingLiveData = MutableLiveData<Boolean>()
-    open val exceptionLiveData = MutableLiveData<Exception>()
+    open val loadingState = MutableLiveData<Boolean>()
+    open val requestState = MutableLiveData<Result<*>>()
+    open val exceptionState = MutableLiveData<Exception>()
 
     private fun <Response> requestInternal(apiDSL: RequestDSL<Response>.() -> Unit) {
         RequestDSL<Response>().apply(apiDSL).launch(viewModelScope)
     }
 
-    protected fun <Response> requestDSL(requestDSL: RequestDSL<Response>.() -> Unit) {
+    protected fun <Response> request(requestDSL: RequestDSL<Response>.() -> Unit) {
         requestInternal<Response> {
             val invoker = RequestDSL<Response>().apply(requestDSL)
             onStart {
-                loadingLiveData.value = true
+                loadingState.value = true
                 invoker.onStart?.invoke()
+                requestState.value = Result.Start<Response>()
             }
             onRequest {
                 invoker.onRequest()
             }
             onResponse { response ->
-                loadingLiveData.value = false
+                loadingState.value = false
                 invoker.onResponse?.invoke(response)
+                requestState.value = Result.Response(response)
             }
             onError { exception ->
-                loadingLiveData.value = false
-                exceptionLiveData.value = exception
+                loadingState.value = false
                 invoker.onError?.invoke(exception)
+                requestState.value = Result.Error<Response>(exception)
+                exceptionState.value = exception
             }
             onFinally {
-                if (loadingLiveData.value != null && loadingLiveData.value == true) {
-                    loadingLiveData.value = false
+                if (loadingState.value != null && loadingState.value == true) {
+                    loadingState.value = false
                 }
                 invoker.onFinally?.invoke()
+                requestState.value = Result.Finally<Response>()
             }
         }
     }
