@@ -28,14 +28,18 @@ open class RequestViewModel : ViewModel() {
                 invoker.onRequest()
             }
             onResponse { response ->
+                loadingLiveData.value = false
                 invoker.onResponse?.invoke(response)
             }
             onError { exception ->
+                loadingLiveData.value = false
                 exceptionLiveData.value = exception
                 invoker.onError?.invoke(exception)
             }
             onFinally {
-                loadingLiveData.value = false
+                if (loadingLiveData.value != null && loadingLiveData.value == true) {
+                    loadingLiveData.value = false
+                }
                 invoker.onFinally?.invoke()
             }
         }
