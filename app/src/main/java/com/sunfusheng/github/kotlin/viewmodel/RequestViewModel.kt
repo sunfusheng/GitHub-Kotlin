@@ -11,7 +11,7 @@ import kotlin.coroutines.CoroutineContext
  */
 open class RequestViewModel : ViewModel() {
     open val loadingState = MutableLiveData<Boolean>()
-    open val requestState = MutableLiveData<Result<*>>()
+    open val requestState = MutableLiveData<RequestState<*>>()
     open val exceptionState = MutableLiveData<Exception>()
 
     private fun <Response> requestInternal(apiDSL: RequestDSL<Response>.() -> Unit) {
@@ -24,7 +24,7 @@ open class RequestViewModel : ViewModel() {
             onStart {
                 loadingState.value = true
                 invoker.onStart?.invoke()
-                requestState.value = Result.Start<Response>()
+                requestState.value = OnStart<Response>()
             }
             onRequest {
                 invoker.onRequest()
@@ -32,12 +32,12 @@ open class RequestViewModel : ViewModel() {
             onResponse { response ->
                 loadingState.value = false
                 invoker.onResponse?.invoke(response)
-                requestState.value = Result.Response(response)
+                requestState.value = OnResponse(response)
             }
             onError { exception ->
                 loadingState.value = false
                 invoker.onError?.invoke(exception)
-                requestState.value = Result.Error<Response>(exception)
+                requestState.value = OnError<Response>(exception)
                 exceptionState.value = exception
             }
             onFinally {
@@ -45,7 +45,7 @@ open class RequestViewModel : ViewModel() {
                     loadingState.value = false
                 }
                 invoker.onFinally?.invoke()
-                requestState.value = Result.Finally<Response>()
+                requestState.value = OnFinally<Response>()
             }
         }
     }
@@ -54,26 +54,25 @@ open class RequestViewModel : ViewModel() {
         context: CoroutineContext = Dispatchers.Main,
         timeoutInMs: Long = 5000L,
         request: suspend () -> Response
-    ): LiveData<Result<Response>> {
+    ): LiveData<RequestState<Response>> {
         return liveData(context, timeoutInMs) {
-            emit(Result.Start())
+            emit(OnStart())
             try {
                 emit(withContext(Dispatchers.IO) {
-                    Result.Response(request())
+                    OnResponse(request())
                 })
             } catch (e: Exception) {
                 e.printStackTrace()
-                emit(Result.Error(e))
+                emit(OnError(e))
             } finally {
-                emit(Result.Finally())
+                emit(OnFinally())
             }
         }
     }
 }
 
-sealed class Result<T> {
-    class Start<T> : Result<T>()
-    data class Response<T>(val response: T) : Result<T>()
-    data class Error<T>(val exception: Exception) : Result<T>()
-    class Finally<T> : Result<T>()
-}
+sealed class RequestState<T>
+class OnStart<T> : RequestState<T>()
+data class OnResponse<T>(val response: T) : RequestState<T>()
+data class OnError<T>(val exception: Exception) : RequestState<T>()
+class OnFinally<T> : RequestState<T>()

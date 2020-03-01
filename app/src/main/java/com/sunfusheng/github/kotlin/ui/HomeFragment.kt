@@ -1,9 +1,16 @@
 package com.sunfusheng.github.kotlin.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.sunfusheng.github.kotlin.R
 import com.sunfusheng.github.kotlin.ui.base.BaseFragment
+import com.sunfusheng.github.kotlin.viewmodel.BaseViewModel
+import com.sunfusheng.github.kotlin.viewmodel.OnResponse
+import com.sunfusheng.github.kotlin.viewmodel.RequestState
+import com.sunfusheng.github.kotlin.viewmodel.getViewModel
 import kotlinx.android.synthetic.main.fragment_todo.*
 
 /**
@@ -12,8 +19,35 @@ import kotlinx.android.synthetic.main.fragment_todo.*
  */
 class HomeFragment : BaseFragment() {
 
-    override fun initData(arguments: Bundle?) {
+    class VM : BaseViewModel() {
+        fun loadData(): LiveData<RequestState<String>> {
+            return requestLiveData {
+                ""
+            }
+        }
+    }
 
+    override fun initData(arguments: Bundle?) {
+        val vm = getViewModel(VM::class.java)
+
+
+        vm.requestState.observe(this, Observer {
+            when (it) {
+                is OnResponse -> {
+                    val res = it.response
+                    Log.d("sfs", "ass $res")
+                }
+            }
+        })
+
+        vm.loadData().observe(this, Observer {
+            when (it) {
+                is OnResponse -> {
+                    val res = it.response
+                    Log.d("sfs", "ass $res")
+                }
+            }
+        })
     }
 
     override fun inflateLayout(): Int {
