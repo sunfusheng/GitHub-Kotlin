@@ -9,20 +9,38 @@ import kotlin.coroutines.CoroutineContext
  * @author sunfusheng
  * @since 2020/2/29
  */
+const val JOB_TAG = "com.sunfusheng.kotlin.JOB_TAG"
+
 open class RequestViewModel : ViewModel() {
-    open val loadingState = MutableLiveData<Boolean>()
-    open val requestState = MutableLiveData<RequestState<*>>()
-    open val exceptionState = MutableLiveData<Exception>()
+    private val mRequestStateMap by lazy { HashMap<String, MutableLiveData<RequestState<*>>>() }
+
+    fun requestState(jobTag: String = JOB_TAG): MutableLiveData<RequestState<*>>? {
+        return mRequestStateMap[jobTag]
+    }
+
+    @Synchronized
+    private fun getRequestStateLiveData(jobTag: String = JOB_TAG): MutableLiveData<RequestState<*>> {
+        var requestState = requestState(jobTag)
+        if (requestState == null) {
+            requestState = MutableLiveData()
+            mRequestStateMap[jobTag] = requestState
+        }
+        return requestState
+    }
 
     private fun <Response> requestInternal(apiDSL: RequestDSL<Response>.() -> Unit) {
         RequestDSL<Response>().apply(apiDSL).launch(viewModelScope)
     }
 
-    protected fun <Response> request(requestDSL: RequestDSL<Response>.() -> Unit) {
+    protected fun <Response> request(
+        jobTag: String = JOB_TAG,
+        requestDSL: RequestDSL<Response>.() -> Unit
+    ) {
         requestInternal<Response> {
             val invoker = RequestDSL<Response>().apply(requestDSL)
+            val requestState = getRequestStateLiveData(jobTag)
+
             onStart {
-                loadingState.value = true
                 invoker.onStart?.invoke()
                 requestState.value = OnStart<Response>()
             }
@@ -30,20 +48,14 @@ open class RequestViewModel : ViewModel() {
                 invoker.onRequest()
             }
             onResponse { response ->
-                loadingState.value = false
                 invoker.onResponse?.invoke(response)
                 requestState.value = OnResponse(response)
             }
             onError { exception ->
-                loadingState.value = false
                 invoker.onError?.invoke(exception)
                 requestState.value = OnError<Response>(exception)
-                exceptionState.value = exception
             }
             onFinally {
-                if (loadingState.value != null && loadingState.value == true) {
-                    loadingState.value = false
-                }
                 invoker.onFinally?.invoke()
                 requestState.value = OnFinally<Response>()
             }
