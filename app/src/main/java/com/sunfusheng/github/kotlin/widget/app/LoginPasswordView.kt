@@ -14,7 +14,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.sunfusheng.github.kotlin.R
 import kotlinx.android.synthetic.main.layout_login_edittext.view.*
 
-
 /**
  * @author sunfusheng
  * @since 2019-12-29
