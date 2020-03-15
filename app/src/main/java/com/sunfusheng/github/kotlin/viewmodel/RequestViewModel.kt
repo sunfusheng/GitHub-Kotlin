@@ -75,11 +75,16 @@ open class RequestViewModel : ViewModel() {
                 })
             } catch (e: Exception) {
                 e.printStackTrace()
-                emit(OnError(e))
+                emit(OnError<Response>(e))
             } finally {
                 emit(OnFinally())
             }
         }
+    }
+
+    override fun onCleared() {
+        mRequestStateMap.clear()
+        super.onCleared()
     }
 }
 
