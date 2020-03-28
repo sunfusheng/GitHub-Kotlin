@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.fragment.app.Fragment
 import com.sunfusheng.github.kotlin.BundleKey
 import com.trello.rxlifecycle2.components.support.RxFragment
 
@@ -12,7 +13,7 @@ import com.trello.rxlifecycle2.components.support.RxFragment
  * @author sunfusheng
  * @since 2020-02-05
  */
-abstract class BaseFragment : RxFragment() {
+abstract class BaseFragment : Fragment() {
 
     protected var mUsername: String? = null
 
