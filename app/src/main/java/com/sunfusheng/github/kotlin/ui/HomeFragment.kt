@@ -1,17 +1,10 @@
 package com.sunfusheng.github.kotlin.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.lifecycle.Observer
 import com.sunfusheng.github.kotlin.R
 import com.sunfusheng.github.kotlin.ui.base.BaseFragment
-import com.sunfusheng.github.kotlin.viewmodel.BaseViewModel
-import com.sunfusheng.github.kotlin.viewmodel.OnError
-import com.sunfusheng.github.kotlin.viewmodel.OnResponse
-import com.sunfusheng.github.kotlin.viewmodel.getViewModel
 import kotlinx.android.synthetic.main.fragment_todo.*
-import kotlinx.coroutines.delay
 
 /**
  * @author sunfusheng

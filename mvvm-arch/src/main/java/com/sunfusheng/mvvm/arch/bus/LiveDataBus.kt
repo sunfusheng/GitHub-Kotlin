@@ -1,6 +1,4 @@
-package com.didi.map.support.arch
-
-import com.sunfusheng.github.kotlin.viewmodel.BusMutableLiveData
+package com.sunfusheng.mvvm.architecture.bus
 
 /**
  * @author sunfusheng

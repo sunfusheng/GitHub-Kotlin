@@ -1,13 +1,9 @@
 package com.sunfusheng.github.kotlin.ui
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Message
-import android.util.Log
 import android.view.View
 import com.sunfusheng.github.kotlin.R
 import com.sunfusheng.github.kotlin.ui.base.BaseFragment
-import com.sunfusheng.github.kotlin.viewmodel.LifecycleHandler
 import kotlinx.android.synthetic.main.fragment_todo.*
 
 /**

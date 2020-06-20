@@ -1,4 +1,4 @@
-package com.sunfusheng.github.kotlin.viewmodel
+package com.sunfusheng.mvvm.architecture.bus
 
 import android.os.Handler
 import android.os.Looper
@@ -6,7 +6,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.didi.map.support.arch.LiveDataBus
 
 /**
  * @author sunfusheng
