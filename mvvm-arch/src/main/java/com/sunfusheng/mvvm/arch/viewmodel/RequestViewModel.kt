@@ -1,6 +1,7 @@
 package com.sunfusheng.mvvm.architecture.viewmodel
 
 import androidx.lifecycle.*
+import com.sunfusheng.mvvm.arch.viewmodel.RequestDSL
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext

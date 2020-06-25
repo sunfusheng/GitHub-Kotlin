@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.architecture.permission
+package com.sunfusheng.mvvm.arch.permission
 
 import android.content.pm.PackageManager
 import android.os.Bundle

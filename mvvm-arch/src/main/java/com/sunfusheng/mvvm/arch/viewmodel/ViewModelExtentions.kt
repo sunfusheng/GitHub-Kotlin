@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.architecture.viewmodel
+package com.sunfusheng.mvvm.arch.viewmodel
 
 import android.content.Context
 import androidx.annotation.NonNull

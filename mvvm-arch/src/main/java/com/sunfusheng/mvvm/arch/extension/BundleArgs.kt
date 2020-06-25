@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.architecture.extension
+package com.sunfusheng.mvvm.arch.extension
 
 import android.app.Activity
 import android.os.Bundle

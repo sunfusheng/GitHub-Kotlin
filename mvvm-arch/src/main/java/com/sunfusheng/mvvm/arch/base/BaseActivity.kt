@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.architecture.base
+package com.sunfusheng.mvvm.arch.base
 
 import android.view.MenuItem
 import androidx.annotation.LayoutRes

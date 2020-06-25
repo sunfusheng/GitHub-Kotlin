@@ -1,11 +1,12 @@
-package com.sunfusheng.mvvm.architecture.util
+package com.sunfusheng.mvvm.arch.util
 
+import android.content.res.AssetManager
 import android.content.res.Resources
 
 /**
  * @author sunfusheng
  * @since 2020/4/4
  */
-val resources: Resources by lazy {
-    ContextHolder.context.resources
-}
+val resources: Resources by lazy { ContextHolder.context.resources }
+
+val assets: AssetManager by lazy { ContextHolder.context.assets }

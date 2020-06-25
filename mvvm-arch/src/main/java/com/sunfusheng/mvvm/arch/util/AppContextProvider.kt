@@ -1,29 +1,23 @@
-package com.sunfusheng.mvvm.architecture.util
+package com.sunfusheng.mvvm.arch.util
 
 import android.app.Application
 import android.content.ContentProvider
 import android.content.ContentValues
-import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.util.Log
-import com.sunfusheng.mvvm.architecture.util.ContextHolder
 
 /**
  * @author sunfusheng
  * @since 2020/3/31
  */
-class ArchitectureProvider : ContentProvider() {
+class AppContextProvider : ContentProvider() {
 
     override fun onCreate(): Boolean {
-        initApp(context!!.applicationContext)
-        return true
-    }
-
-    private fun initApp(context: Context) {
-        ContextHolder.context = context
+        ContextHolder.context = context!!
         ContextHolder.app = context as Application
-        Log.d("sfs", "ArchitectureProvider onCreate() $context")
+        Log.d("sfs", "AppContextProvider onCreate() $context")
+        return true
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? = null

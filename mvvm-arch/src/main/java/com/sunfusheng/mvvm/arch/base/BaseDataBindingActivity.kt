@@ -1,10 +1,10 @@
-package com.sunfusheng.mvvm.architecture.base
+package com.sunfusheng.mvvm.arch.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.sunfusheng.mvvm.architecture.viewmodel.BaseViewModel
+import com.sunfusheng.mvvm.arch.viewmodel.BaseViewModel
 
 /**
  * @author sunfusheng

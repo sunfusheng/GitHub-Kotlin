@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.architecture.permission
+package com.sunfusheng.mvvm.arch.permission
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.architecture.util
+package com.sunfusheng.mvvm.arch.util
 
 import android.widget.Toast
 

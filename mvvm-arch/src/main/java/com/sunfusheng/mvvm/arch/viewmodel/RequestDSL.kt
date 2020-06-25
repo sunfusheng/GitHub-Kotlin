@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.architecture.viewmodel
+package com.sunfusheng.mvvm.arch.viewmodel
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
