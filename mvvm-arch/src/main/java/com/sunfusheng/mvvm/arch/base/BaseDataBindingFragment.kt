@@ -15,8 +15,8 @@ import com.sunfusheng.mvvm.arch.viewmodel.BaseViewModel
  */
 abstract class BaseDataBindingFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseFragment() {
 
-    protected lateinit var binding: V
-    protected lateinit var viewModel: VM
+    lateinit var binding: V
+    lateinit var viewModel: VM
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +33,7 @@ abstract class BaseDataBindingFragment<V : ViewDataBinding, VM : BaseViewModel> 
     }
 
     private fun initViewDataBinding() {
-        viewModel = initViewModel()
+        viewModel = createViewModel()
         lifecycle.addObserver(viewModel)
         binding.lifecycleOwner = this
         binding.setVariable(getVariableId(), viewModel)
@@ -42,5 +42,5 @@ abstract class BaseDataBindingFragment<V : ViewDataBinding, VM : BaseViewModel> 
     @LayoutRes
     abstract fun getLayoutId(): Int
     abstract fun getVariableId(): Int
-    abstract fun initViewModel(): VM
+    abstract fun createViewModel(): VM
 }

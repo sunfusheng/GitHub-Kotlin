@@ -12,8 +12,8 @@ import com.sunfusheng.mvvm.arch.viewmodel.BaseViewModel
  */
 abstract class BaseDataBindingActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseActivity() {
 
-    protected lateinit var binding: V
-    protected lateinit var viewModel: VM
+    lateinit var binding: V
+    lateinit var viewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ abstract class BaseDataBindingActivity<V : ViewDataBinding, VM : BaseViewModel> 
 
     private fun initViewDataBindingOnCreate() {
         binding = DataBindingUtil.setContentView(this, getLayoutId())
-        viewModel = initViewModel()
+        viewModel = createViewModel()
         binding.lifecycleOwner = this
         lifecycle.addObserver(viewModel)
         binding.setVariable(getVariableId(), viewModel)
@@ -31,5 +31,5 @@ abstract class BaseDataBindingActivity<V : ViewDataBinding, VM : BaseViewModel> 
     @LayoutRes
     abstract fun getLayoutId(): Int
     abstract fun getVariableId(): Int
-    abstract fun initViewModel(): VM
+    abstract fun createViewModel(): VM
 }
