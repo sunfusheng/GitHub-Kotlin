@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.arch.base
+package com.sunfusheng.mvvm.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.sunfusheng.mvvm.arch.viewmodel.BaseViewModel
+import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 
 /**
  * @author sunfusheng

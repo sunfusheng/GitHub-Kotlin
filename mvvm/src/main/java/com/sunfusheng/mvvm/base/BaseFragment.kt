@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.arch.base
+package com.sunfusheng.mvvm.base
 
 import android.os.Bundle
 import androidx.activity.addCallback

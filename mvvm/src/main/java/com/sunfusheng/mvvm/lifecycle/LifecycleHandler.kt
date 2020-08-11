@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.arch.lifecycle
+package com.sunfusheng.mvvm.lifecycle
 
 import android.os.Handler
 import android.os.Looper

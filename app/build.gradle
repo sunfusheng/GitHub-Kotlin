@@ -61,5 +61,5 @@ dependencies {
     implementation 'com.sunfusheng:RecyclerViewWrapper:1.0.4'
     implementation 'com.sunfusheng:GroupRecyclerViewAdapter:1.2.0'
 
-    implementation project(':mvvm-arch')
+    implementation project(':mvvm')
 }

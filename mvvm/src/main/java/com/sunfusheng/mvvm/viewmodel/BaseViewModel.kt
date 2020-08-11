@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.arch.viewmodel
+package com.sunfusheng.mvvm.viewmodel
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
