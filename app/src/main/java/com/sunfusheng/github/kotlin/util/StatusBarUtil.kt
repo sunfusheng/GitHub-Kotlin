@@ -634,19 +634,15 @@ object StatusBarUtil {
         return context.resources.getDimensionPixelSize(resourceId)
     }
 
-    fun fullScreen(window: Window) {
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+    fun setFullScreen(window: Window, isFull: Boolean) {
+        if (isFull) {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-        }
-    }
-
-    fun unfullScreen(window: Window) {
-        window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
     }

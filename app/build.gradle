@@ -23,8 +23,8 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
 
     lintOptions {
