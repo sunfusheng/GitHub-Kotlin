@@ -8,18 +8,16 @@ import androidx.fragment.app.Fragment
 import com.sunfusheng.github.kotlin.R
 import com.sunfusheng.github.kotlin.ui.base.FragmentViewPager2Adapter
 import com.sunfusheng.github.kotlin.util.StatusBarUtil
-import kotlinx.android.synthetic.main.activity_main.vDiscover
-import kotlinx.android.synthetic.main.activity_main.vHome
-import kotlinx.android.synthetic.main.activity_main.vMe
-import kotlinx.android.synthetic.main.activity_main.viewPager2
-import kotlinx.android.synthetic.main.layout_toolbar.vStatusBar
-import kotlinx.android.synthetic.main.layout_toolbar.vToolbar
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_toolbar.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAB_HOME = 0
-    private val TAB_DISCOVER = 1
-    private val TAB_ME = 2
+    companion object {
+        const val TAB_HOME = 0
+        const val TAB_DISCOVER = 1
+        const val TAB_ME = 2
+    }
 
     private var mSelectedTab = TAB_HOME
 
