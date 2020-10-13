@@ -1,5 +1,6 @@
 package com.sunfusheng.github.kotlin.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.SparseArray
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +8,12 @@ import androidx.fragment.app.Fragment
 import com.sunfusheng.github.kotlin.R
 import com.sunfusheng.github.kotlin.ui.base.FragmentViewPager2Adapter
 import com.sunfusheng.github.kotlin.util.StatusBarUtil
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.layout_toolbar.*
+import kotlinx.android.synthetic.main.activity_main.vDiscover
+import kotlinx.android.synthetic.main.activity_main.vHome
+import kotlinx.android.synthetic.main.activity_main.vMe
+import kotlinx.android.synthetic.main.activity_main.viewPager2
+import kotlinx.android.synthetic.main.layout_toolbar.vStatusBar
+import kotlinx.android.synthetic.main.layout_toolbar.vToolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         switchTab(mSelectedTab)
         initViewPager2()
 
-//        startActivity(Intent(this, LoginActivity::class.java))
-//        finish()
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     private fun initToolbar() {
