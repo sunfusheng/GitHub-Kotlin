@@ -88,4 +88,5 @@ class MainActivity : AppCompatActivity() {
         viewPager2.isUserInputEnabled = false
         viewPager2.adapter = adapter
     }
+
 }
