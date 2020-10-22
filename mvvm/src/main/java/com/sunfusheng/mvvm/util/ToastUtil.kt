@@ -1,6 +1,7 @@
 package com.sunfusheng.mvvm.util
 
 import android.widget.Toast
+import androidx.annotation.StringRes
 
 /**
  * @author sunfusheng
@@ -9,6 +10,10 @@ import android.widget.Toast
 object ToastUtil {
 
     fun show(text: String, duration: Int = Toast.LENGTH_SHORT) {
+        Toast.makeText(ContextHolder.context, text, duration).show()
+    }
+
+    fun show(@StringRes text: Int, duration: Int = Toast.LENGTH_SHORT) {
         Toast.makeText(ContextHolder.context, text, duration).show()
     }
 }

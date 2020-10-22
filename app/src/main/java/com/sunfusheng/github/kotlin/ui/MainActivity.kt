@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         switchTab(mSelectedTab)
         initViewPager2()
 
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
+//        startActivity(Intent(this, LoginActivity::class.java))
+//        finish()
     }
 
     private fun initToolbar() {
@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity() {
             switchTab(TAB_DISCOVER)
         }
         vMe.setOnClickListener {
-            switchTab(TAB_ME)
+//            switchTab(TAB_ME)
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 

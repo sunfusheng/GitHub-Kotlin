@@ -5,7 +5,6 @@ import android.content.ContentProvider
 import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
-import android.util.Log
 
 /**
  * @author sunfusheng
@@ -15,8 +14,9 @@ class AppContextProvider : ContentProvider() {
 
     override fun onCreate(): Boolean {
         ContextHolder.context = context!!
-        ContextHolder.app = context as Application
-        Log.d("sfs", "AppContextProvider onCreate() $context")
+        ContextHolder.application = context as Application
+        AppUtil.init(context!!)
+        LogUtil.d("AppContextProvider onCreate()")
         return true
     }
 

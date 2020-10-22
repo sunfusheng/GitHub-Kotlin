@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.animation.DecelerateInterpolator
@@ -244,7 +243,6 @@ class SVGView @JvmOverloads constructor(
                 mGlyphData[i].path!!.transform(scaleMatrix)
             } catch (e: Exception) {
                 mGlyphData[i].path = Path()
-                Log.e(TAG, "Couldn't parse path", e)
             }
 
             val pm = PathMeasure(mGlyphData[i].path, true)

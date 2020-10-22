@@ -1,7 +1,6 @@
 package com.sunfusheng.github.kotlin
 
 import android.app.Application
-import com.sunfusheng.github.kotlin.util.AppUtil
 
 /**
  * @author sunfusheng
@@ -11,7 +10,5 @@ class GitHubApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        AppUtil.init(this)
     }
 }

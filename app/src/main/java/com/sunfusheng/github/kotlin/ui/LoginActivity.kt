@@ -1,12 +1,13 @@
 package com.sunfusheng.github.kotlin.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.TextUtils
 import com.sunfusheng.github.kotlin.R
 import com.sunfusheng.github.kotlin.ui.base.BaseActivity
-import com.sunfusheng.github.kotlin.util.KeyboardUtil
 import com.sunfusheng.github.kotlin.util.StatusBarUtil
-import com.sunfusheng.github.kotlin.util.ToastUtil
+import com.sunfusheng.mvvm.util.KeyboardUtil
+import com.sunfusheng.mvvm.util.ToastUtil
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -30,6 +31,7 @@ class LoginActivity : BaseActivity() {
         }, 200)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun initListeners() {
         vRootView.setOnTouchListener { v, event ->
             v.clearFocus()
@@ -53,13 +55,13 @@ class LoginActivity : BaseActivity() {
     private fun login() {
         val username = vUsername.getUsername()
         if (TextUtils.isEmpty(username)) {
-            ToastUtil.toast(R.string.username_input)
+            ToastUtil.show(R.string.username_input)
             return
         }
 
         val password = vPassword.getPassword()
         if (TextUtils.isEmpty(password)) {
-            ToastUtil.toast(R.string.password_input)
+            ToastUtil.show(R.string.password_input)
             return
         }
 

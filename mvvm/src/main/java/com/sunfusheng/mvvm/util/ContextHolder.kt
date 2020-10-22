@@ -9,5 +9,5 @@ import android.content.Context
  */
 object ContextHolder {
     lateinit var context: Context
-    lateinit var app: Application
+    lateinit var application: Application
 }
