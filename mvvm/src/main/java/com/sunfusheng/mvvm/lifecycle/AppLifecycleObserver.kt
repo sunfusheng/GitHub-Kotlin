@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.util
+package com.sunfusheng.mvvm.lifecycle
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner

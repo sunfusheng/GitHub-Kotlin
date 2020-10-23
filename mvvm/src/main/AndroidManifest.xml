@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sunfusheng.mvvm">
 
     <application>
         <provider
-            android:name="com.sunfusheng.mvvm.util.AppContextProvider"
-            android:authorities="${applicationId}.AppContext"
-            android:exported="false" />
+            android:name="com.sunfusheng.mvvm.lifecycle.AppInitializer"
+            android:authorities="${applicationId}.AppInitializer"
+            android:directBootAware="false"
+            android:exported="false"
+            android:multiprocess="true"
+            tools:targetApi="n" />
     </application>
 </manifest>

@@ -1,22 +1,25 @@
-package com.sunfusheng.mvvm.util
+package com.sunfusheng.mvvm.lifecycle
 
 import android.app.Application
 import android.content.ContentProvider
 import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
+import com.sunfusheng.mvvm.util.AppUtil
+import com.sunfusheng.mvvm.util.ContextHolder
+import com.sunfusheng.mvvm.util.LogUtil
 
 /**
  * @author sunfusheng
  * @since 2020/3/31
  */
-class AppContextProvider : ContentProvider() {
+class AppInitializer : ContentProvider() {
 
     override fun onCreate(): Boolean {
         ContextHolder.context = context!!
         ContextHolder.application = context as Application
-        AppUtil.init(context!!)
-        LogUtil.d("AppContextProvider onCreate()")
+        AppUtil.init(context as Application)
+        LogUtil.d("AppInitializer onCreate()")
         return true
     }
 

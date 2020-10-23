@@ -1,14 +1,19 @@
 package com.sunfusheng.mvvm.util
 
-import android.content.Context
+import android.app.Activity
+import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ProcessLifecycleOwner
+import com.sunfusheng.mvvm.lifecycle.AppLifecycleObserver
+import com.sunfusheng.mvvm.lifecycle.DefaultActivityLifecycleCallbacks
 import java.io.File
 import java.io.FileNotFoundException
+import java.util.*
 
 /**
  * @author sunfusheng
@@ -16,10 +21,22 @@ import java.io.FileNotFoundException
  */
 object AppUtil {
 
-    private val mAppLifecycleObserver by lazy { AppLifecycleObserver() }
+    private val activityStack = Stack<Activity>()
+    private val appLifecycleObserver = AppLifecycleObserver()
 
-    fun init(context: Context) {
-        ProcessLifecycleOwner.get().lifecycle.addObserver(mAppLifecycleObserver)
+    fun init(application: Application) {
+        application.registerActivityLifecycleCallbacks(object : DefaultActivityLifecycleCallbacks {
+            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+                super.onActivityCreated(activity, savedInstanceState)
+                activityStack.push(activity)
+            }
+
+            override fun onActivityDestroyed(activity: Activity) {
+                super.onActivityDestroyed(activity)
+                activityStack.pop()
+            }
+        })
+        ProcessLifecycleOwner.get().lifecycle.addObserver(appLifecycleObserver)
     }
 
     fun getPackageName() = ContextHolder.context.packageName
@@ -44,7 +61,9 @@ object AppUtil {
         }
     }
 
-    fun isForeground() = mAppLifecycleObserver.isForeground
+    fun getTopActivity(): Activity = activityStack.peek()
+
+    fun isForeground() = appLifecycleObserver.isForeground
 
     fun installApk(apkPath: String) {
         try {
