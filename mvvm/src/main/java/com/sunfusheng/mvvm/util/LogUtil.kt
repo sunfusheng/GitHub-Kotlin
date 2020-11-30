@@ -7,6 +7,7 @@ import android.util.Log
  * @since  2020/10/22
  */
 object LogUtil {
+
     private const val TAG = "GitHub"
     private const val SUB_TAG = "[sfs]"
 
